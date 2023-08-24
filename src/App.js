@@ -24,7 +24,7 @@
 
 // export default App;
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
@@ -176,6 +176,7 @@ function App() {
 								<div className="edit-todo">
 									<input
 										type="text"
+										placeholder="Внесите изменения..."
 										value={editingTodoText}
 										onChange={(e) =>
 											setEditingTodoText(e.target.value)

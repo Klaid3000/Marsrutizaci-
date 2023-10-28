@@ -1,32 +1,3 @@
-/* .App {
-	text-align: center;
-	margin-top: 20px;
-	font-family: Arial, sans-serif;
-}
-
-h1 {
-	color: #333;
-}
-
-ul {
-	list-style: none;
-	padding: 0;
-}
-
-li {
-	padding: 12px;
-	border-bottom: 1px solid #ccc;
-	transition: background-color 0.3s ease;
-}
-
-li:nth-child(even) {
-	background-color: #f5f5f5;
-}
-
-li:hover {
-	background-color: #e0e0e0;
-} */
-
 .App {
 	font-family: Arial, sans-serif;
 	padding: 20px;
@@ -115,7 +86,7 @@ ul {
 li {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 	padding: 10px;
 	border-bottom: 1px solid #ccc;
 	position: relative;
@@ -173,4 +144,44 @@ li input[type='checkbox'] {
 	background-color: #17a2b8;
 	color: white;
 	cursor: pointer;
+}
+
+.edit-todo button:hover {
+	background-color: #c82333;
+	transform: scale(1.05);
+}
+
+.todo-text {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 300px;
+}
+
+.span {
+	text-align: center;
+}
+
+.back {
+	font-size: 14px;
+	background-color: #333;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	padding: 6px 12px;
+	margin-left: 10px;
+	cursor: pointer;
+	text-decoration: none;
+	transition:
+		background-color 0.3s ease,
+		transform 0.2s ease;
+}
+
+.delete-back {
+	text-decoration: none;
+	color: white;
+}
+
+h2 {
+	text-align: center;
 }

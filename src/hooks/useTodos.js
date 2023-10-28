@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 function useTodos() {
 	const [todos, setTodos] = useState([]);
+	const [todo, setTodo] = useState(null);
 
 	useEffect(() => {
 		fetch('http://localhost:5000/todos')
@@ -49,11 +50,23 @@ function useTodos() {
 			.catch((error) => console.error('Error deleting todo:', error));
 	};
 
+	const getTodo = (id) => {
+		fetch(`http://localhost:5000/todos/${id}`)
+			.then((item) => {
+				return item.json();
+			})
+			.then((todo) => {
+				setTodo(todo);
+			})
+			.catch((error) => console.error('Error deleting todo:', error));
+	};
 	return {
 		todos,
 		addTodo,
 		updateTodo,
 		deleteTodo,
+		getTodo,
+		todo,
 	};
 }
 

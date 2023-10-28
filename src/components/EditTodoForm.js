@@ -1,13 +1,24 @@
 import { useState } from 'react';
 
-function EditTodoForm({ todo, saveEditedTodo, cancelEditing }) {
+function EditTodoForm({
+	todo,
+	saveEditedTodo,
+	isEditing,
+	setIsEditing,
+	handleSaveTitle,
+}) {
 	const [editingTodoText, setEditingTodoText] = useState(todo.title);
 
 	const handleSaveEditedTodo = () => {
 		if (editingTodoText.trim() !== '') {
-			saveEditedTodo(todo.id, { title: editingTodoText }); // Обновляем только название задачи
-			cancelEditing();
+			saveEditedTodo(todo.id, { title: editingTodoText });
+			setIsEditing(false);
+			handleSaveTitle(editingTodoText);
 		}
+	};
+
+	const handleCancelEditing = () => {
+		setIsEditing(false);
 	};
 
 	return (
@@ -19,7 +30,7 @@ function EditTodoForm({ todo, saveEditedTodo, cancelEditing }) {
 				onChange={(e) => setEditingTodoText(e.target.value)}
 			/>
 			<button onClick={handleSaveEditedTodo}>Сохранить изменения</button>
-			<button onClick={cancelEditing}>Отмена</button>
+			<button onClick={handleCancelEditing}>Отмена</button>
 		</div>
 	);
 }
